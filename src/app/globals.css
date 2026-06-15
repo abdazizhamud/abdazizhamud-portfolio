@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* ─── Custom theme tokens (Tailwind v4 @theme) ───────────────────────────── */
+
+@layer base {
+  :root {
+    /* Typography */
+    --font-sans: var(--font-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+    /* Brand color palette — cool slate light theme */
+    --color-background: #fafafa;
+    --color-surface: #ffffff;
+    --color-border: #e4e7ec;
+    --color-border-subtle: #f1f3f6;
+
+    /* Text hierarchy */
+    --color-text-primary: #111827;
+    --color-text-secondary: #374151;
+    --color-text-muted: #6b7280;
+    --color-text-faint: #9ca3af;
+
+    /* Accent — a bold scarlet red, used sparingly */
+    --color-accent: #dc2626;
+    --color-accent-soft: #fef2f2;
+
+    /* Tag / chip backgrounds */
+    --color-chip-bg: #f1f5f9;
+    --color-chip-text: #475569;
+  }
+  
+  /* Apply the background color to the whole page */
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+}
+
+/* ─── Base resets ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ─── Focus ring (keyboard accessibility) ─────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ─── Section rhythm ──────────────────────────────────────────────────────── */
+/* Each major section gets consistent vertical breathing room */
+.section-wrapper {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 900px) {
+  .section-wrapper {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ─── Section divider line ────────────────────────────────────────────────── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ─── Section heading style (shared across all sections) ─────────────────── */
+.section-label {
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: 0.375rem;
+}
+
+@media (min-width: 900px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* ─── Tech chip / tag ─────────────────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: var(--color-chip-bg);
+  color: var(--color-chip-text);
+  white-space: nowrap;
+}
+
+/* ─── Interactive link / button hover states (CSS-only, no JS handlers) ──── */
+
+/* Hero + project outlined link button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background-color: var(--color-chip-bg);
+  color: var(--color-text-primary);
+}
+
+/* Hero + project filled accent button */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid var(--color-accent);
+  color: #fff;
+  background-color: var(--color-accent);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background-color: #b91c1c; /* Darker scarlet for the hover state */
+  border-color: #b91c1c;
+}
+
+/* Smaller project action link (outlined) */
+.btn-sm-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.btn-sm-outline:hover {
+  background-color: var(--color-chip-bg);
+  color: var(--color-text-primary);
+}
+
+/* Smaller project action link (accent) */
+.btn-sm-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid var(--color-accent);
+  color: #fff;
+  background-color: var(--color-accent);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.btn-sm-accent:hover {
+  background-color: #b91c1c; /* Darker scarlet for the hover state */
+  border-color: #b91c1c;
+}
+
+/* Inline icon link (e.g. repo icon next to project title) */
+.icon-link {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-faint);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.icon-link:hover {
+  color: var(--color-text-muted);
+}
+
+/* Certificate credential icon button */
+.cert-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+.cert-link:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

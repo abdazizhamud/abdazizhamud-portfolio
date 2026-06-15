@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { FileText } from "lucide-react";
+// Added Code2 for the new Projects button
+import { FileText, ChevronDown, Code2 } from "lucide-react"; 
 import { hero } from "@/src/data/content";
 
 export default function Hero() {
@@ -21,7 +22,10 @@ export default function Hero() {
     <section
       id="hero"
       className="section-wrapper"
-      style={{ borderBottom: "1px solid var(--color-border)" }}
+      style={{ 
+        borderBottom: "1px solid var(--color-border)",
+        position: "relative",
+      }}
     >
       <div
         style={{
@@ -30,7 +34,7 @@ export default function Hero() {
           padding: "0 1.5rem",
           display: "flex",
           flexDirection: "row",
-          flexWrap: "wrap-reverse", // stacks below on mobile, right on desktop
+          flexWrap: "wrap-reverse",
           alignItems: "center",
           justifyContent: "space-between",
           gap: "2rem",
@@ -39,7 +43,7 @@ export default function Hero() {
         {/* ── Left Column: Text Block ───────────────────────────── */}
         <div
           style={{
-            flex: "1 1 480px", // Text column width
+            flex: "1 1 480px",
             display: "flex",
             flexDirection: "column",
             gap: "1rem",
@@ -123,7 +127,7 @@ export default function Hero() {
             }}
           >
             <HeroLink href={hero.links.github} icon={<GithubIcon />} label="GitHub" external />
-            <HeroLink href={hero.links.linkedin} icon={<LinkedinIcon />} label="LinkedIn" external />
+            <HeroLink href="/#projects" icon={<Code2 size={15} />} label="See my projects" />
             <HeroLink
               href={hero.links.resume}
               icon={<FileText size={15} />}
@@ -134,41 +138,78 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Right Column: Large Image Block ──────────────────── */}
+        {/* ── Right Column: Large Image Block + Floating Logos ─── */}
         <div
           style={{
-            flex: "0 0 250px", // Image column width container
+            flex: "0 0 340px", // Increased container width
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            padding: "1rem 0"
           }}
         >
           <div
             style={{
-              width: "230px", // Large picture size
-              height: "230px",
-              borderRadius: "16px", // Updated proportional rounding
-              overflow: "hidden",
+              width: "320px", // Increased picture size from 230px
+              height: "320px",
+              borderRadius: "24px", // Updated proportional rounding
               border: "1px solid var(--color-border)",
               flexShrink: 0,
+              position: "relative", // Required for absolute positioning of logos
+              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)"
             }}
           >
-            <Image
-              src={hero.avatar}
-              alt={`${hero.name} profile photo`}
-              width={230} // Updated size
-              height={230} // Updated size
-              priority
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            {/* The actual image */}
+            <div style={{ width: "100%", height: "100%", borderRadius: "23px", overflow: "hidden" }}>
+              <Image
+                src={hero.avatar}
+                alt={`${hero.name} profile photo`}
+                width={320} // Updated size
+                height={320} // Updated size
+                priority
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* ── Scroll Down Indicator ─────────────────────────────── */}
+      <div 
+        style={{ 
+          width: "100%", 
+          display: "flex", 
+          justifyContent: "center", 
+          marginTop: "4rem" 
+        }}
+      >
+        <a 
+          href="#about"
+          aria-label="Scroll down"
+          className="animate-bounce"
+          style={{
+            color: "var(--color-text-faint)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "0.5rem",
+            textDecoration: "none",
+            transition: "color 0.2s ease"
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-faint)")}
+        >
+          <span style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            Scroll
+          </span>
+          <ChevronDown size={24} />
+        </a>
       </div>
     </section>
   );
 }
 
-// ── Sub-components: brand icons (inline SVG — lucide dropped brand logos) ────
+// ── Sub-components: brand icons (inline SVG) ────────────────────────────────
 function GithubIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -177,11 +218,54 @@ function GithubIcon() {
   );
 }
 
-function LinkedinIcon() {
+// ── Sub-component: Floating Brand Link ─────────────────────────────────────
+type FloatingBrandLinkProps = {
+  href: string;
+  icon: React.ReactNode;
+  style: React.CSSProperties;
+  label: string;
+};
+
+function FloatingBrandLink({ href, icon, style, label }: FloatingBrandLinkProps) {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 1152.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      style={{
+        position: "absolute",
+        width: "44px",
+        height: "44px",
+        borderRadius: "50%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(255, 255, 255, 0.6)", // Glass effect base
+        backdropFilter: "blur(8px)", // Frosted glass effect
+        WebkitBackdropFilter: "blur(8px)",
+        border: "1px solid rgba(255, 255, 255, 0.3)",
+        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        transition: "transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease",
+        color: "var(--color-text-primary)",
+        zIndex: 10,
+        ...style,
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget;
+        el.style.transform = "scale(1.1) translateY(-2px)";
+        el.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+        el.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget;
+        el.style.transform = "scale(1) translateY(0)";
+        el.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
+        el.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)";
+      }}
+    >
+      {icon}
+    </a>
   );
 }
 

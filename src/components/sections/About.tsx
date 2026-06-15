@@ -2,19 +2,33 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react"; // Imported arrow icons
 import { about } from "@/src/data/content";
 
 export default function About() {
   const [imageIndex, setImageIndex] = useState(0);
 
+  // Auto-advance timer
   useEffect(() => {
-    // Change the picture every 4 seconds (4000 milliseconds)
     const interval = setInterval(() => {
       setImageIndex((prevIndex) => (prevIndex + 1) % about.avatars.length);
     }, 4000);
 
+    // Adding imageIndex to the dependency array ensures the timer 
+    // resets whenever the user manually clicks "next" or "prev"
     return () => clearInterval(interval);
-  }, []);
+  }, [imageIndex]); 
+
+  // Manual navigation handlers
+  const handlePrev = () => {
+    setImageIndex((prevIndex) => 
+      prevIndex === 0 ? about.avatars.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setImageIndex((prevIndex) => (prevIndex + 1) % about.avatars.length);
+  };
 
   return (
     <section
@@ -37,42 +51,116 @@ export default function About() {
           gap: "2.5rem",
         }}
       >
-        {/* ── Left Column: Fading Image Slideshow ──────────────────── */}
+        {/* ── Left Column: Interactive Image Carousel ──────────────────── */}
         <div
           style={{
-            flex: "0 0 240px",
+            flex: "0 0 340px", // Increased to match hero layout
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            padding: "1rem 0"
           }}
         >
           <div
             style={{
-              position: "relative", // Required for overlapping images
-              width: "250px",
-              height: "250px",
-              borderRadius: "16px",
+              position: "relative", // Required for overlapping images and buttons
+              width: "320px", // Increased from 250px
+              height: "320px", // Increased from 250px
+              borderRadius: "24px", // Matches hero rounding
               overflow: "hidden",
               border: "1px solid var(--color-border)",
               flexShrink: 0,
+              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05)",
             }}
+            className="group" // Added Tailwind group for hover effects
           >
+            {/* The Images */}
             {about.avatars.map((src, index) => (
               <Image
                 key={src}
                 src={src}
                 alt={`About picture ${index + 1}`}
                 fill
-                sizes="250px"
+                sizes="320px"
                 style={{
                   objectFit: "cover",
-                  // Fade in the active image, hide the others
                   opacity: index === imageIndex ? 1 : 0, 
-                  // Smooth 1-second transition
-                  transition: "opacity 1s ease-in-out", 
+                  transition: "opacity 0.6s ease-in-out", // Slightly faster fade
                 }}
               />
             ))}
+
+            {/* ── Navigation Buttons ───────────────────────── */}
+            {/* Previous Button */}
+            <button
+              onClick={handlePrev}
+              aria-label="Previous image"
+              style={{
+                position: "absolute",
+                left: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: "36px",
+                height: "36px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(4px)",
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                color: "var(--color-text-primary)",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                zIndex: 10,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--color-surface)";
+                e.currentTarget.style.color = "var(--color-accent)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+                e.currentTarget.style.color = "var(--color-text-primary)";
+              }}
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={handleNext}
+              aria-label="Next image"
+              style={{
+                position: "absolute",
+                right: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: "36px",
+                height: "36px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(4px)",
+                border: "1px solid rgba(0, 0, 0, 0.1)",
+                color: "var(--color-text-primary)",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                zIndex: 10,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--color-surface)";
+                e.currentTarget.style.color = "var(--color-accent)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+                e.currentTarget.style.color = "var(--color-text-primary)";
+              }}
+            >
+              <ChevronRight size={20} />
+            </button>
+            {/* ── End Navigation Buttons ───────────────────── */}
           </div>
         </div>
 

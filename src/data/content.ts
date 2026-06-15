@@ -10,13 +10,15 @@ export const hero = {
   greetings: ["hey there 👋", "how are u?", "welcome! 🌱", "good to see you.", "dont think twice, it's alright"],
   name: "Hamud Abdul Aziz",
   role: "Computer Science Student",
-  tagline: "Data-driven mind in the world of data-consuming heart",
-  bio: "Hiiii, My names Hamud Abdul Aziz",
-  avatar: "/images/profile.jpeg",
+ tagline: "I write code that works perfectly. (On my machine, at least.) Data-driven mind in the world of data-consuming heart",
+  bio: "Hiiii, my name is Hamud. I'm a CS student, which is mostly just a fancy way of saying I am my family's unpaid IT support. I survive on caffeine, stubbornness, and the delusion that my code will compile on the first try.",avatar: "/images/profile.jpeg",
   links: {
     github: "https://github.com/abdazizhamud",
     linkedin: "https://www.linkedin.com/in/hamud-abdul-aziz/",
     resume: "/docs/cv.pdf",
+    instagram:"",
+    spotify:"",
+    letterboxd:""
   },
 };
 
@@ -114,6 +116,34 @@ export const orgExperiences: OrgExperience[] = [
   },
 ];
 
+// // ── SKILLS MATRIX ─────────────────────────────
+// export type SkillCategory = {
+//   category: string;
+//   skills: string[];
+// };
+
+// export const skillCategories: SkillCategory[] = [
+//   {
+//     category: "Backend",
+//     skills: ["Go", "Python", "Node.js", "Rust (learning)", "gRPC", "REST", "GraphQL", "FastAPI", "Gin"],
+//   },
+//   {
+//     category: "Systems",
+//     skills: ["Linux (Debian/Arch)", "POSIX C", "TCP/IP", "Socket Programming", "Memory Management", "Concurrency"],
+//   },
+//   {
+//     category: "Data & Messaging",
+//     skills: ["PostgreSQL", "MySQL", "Redis", "Apache Kafka", "RabbitMQ", "ClickHouse"],
+//   },
+//   {
+//     category: "Infrastructure & DevOps",
+//     skills: ["Docker", "Kubernetes", "Terraform", "GitHub Actions", "Prometheus", "Grafana", "Nginx"],
+//   },
+//   {
+//     category: "Tools & Practices",
+//     skills: ["Git", "Neovim", "Postman", "k6", "Datadog", "ADR", "TDD", "Code Review"],
+//   },
+// ];
 // ── SKILLS MATRIX ─────────────────────────────
 export type SkillCategory = {
   category: string;
@@ -122,24 +152,29 @@ export type SkillCategory = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Backend",
-    skills: ["Go", "Python", "Node.js", "Rust (learning)", "gRPC", "REST", "GraphQL", "FastAPI", "Gin"],
+    category: "Software Engineering",
+    skills: [
+      "Next.js & React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Redis",
+      "REST",
+      "Docker",
+      "Git",
+    ],
   },
   {
-    category: "Systems",
-    skills: ["Linux (Debian/Arch)", "POSIX C", "TCP/IP", "Socket Programming", "Memory Management", "Concurrency"],
-  },
-  {
-    category: "Data & Messaging",
-    skills: ["PostgreSQL", "MySQL", "Redis", "Apache Kafka", "RabbitMQ", "ClickHouse"],
-  },
-  {
-    category: "Infrastructure & DevOps",
-    skills: ["Docker", "Kubernetes", "Terraform", "GitHub Actions", "Prometheus", "Grafana", "Nginx"],
-  },
-  {
-    category: "Tools & Practices",
-    skills: ["Git", "Neovim", "Postman", "k6", "Datadog", "ADR", "TDD", "Code Review"],
+    category: "Data Analytics & AI",
+    skills: [
+      "Python(Pandas)",
+      "Data Analysis (SQL)",
+      "Data Plotting",
+      "Data Visualization",
+      "Data cleansing and data extraction",
+      "Machine Learning and Deep Learning",
+    ],
   },
 ];
 
@@ -161,7 +196,7 @@ export const pinnedProjects: PinnedProject[] = [
     title: "NutriMatch: AI-Powered Personalized Diet & Allergen-Smart Recommendation System",
     thumbnail: "/images/projek1.png",
     summary:
-      "AI Engineer, Coding Camp 2026 powered by DBS Foundation",
+      "NutriMatch is an AI-powered meal plan recommendation web app that helps users create weekly meal plans based on their personal nutritional needs and food allergy safety.",
     techStack: ["Python", "FastApi", "Tensorflow", "Keras", "Nextjs"],
     bullets: [
       "Analyzed and processed multi-dimensional user health data (age, gender, BMI, activity levels, and diet goals) to build automated calculators for BMR, TDEE, and daily caloric targets.",
@@ -176,7 +211,7 @@ export const pinnedProjects: PinnedProject[] = [
     title: "BeliBiji - E-Commerce & Biodiversity Crowdfunding Platform",
     thumbnail: "/images/projek2.png",
     summary:
-      "Backend Developer",
+      "BeliBiji is an integrated web platform that combines retail e-commerce (B2C) functionality with natural resource conservation initiatives. ",
     techStack: ["JavaScript", "TypeScript", "ExpressJs", "Supabase", "NextJs", "MidTrans"],
     bullets: [
       "Designed and developed a secure, scalable RESTful API architecture for an e-commerce and ecological crowdfunding web application using Node.js/Express and PostgreSQL.",
@@ -190,7 +225,21 @@ export const pinnedProjects: PinnedProject[] = [
     title: "KotakP3K (MediProfen): Virtual Reality Emergency Medical Training Simulation ",
     thumbnail: "/images/projek3.png",
     summary:
-      "3D Animator & UI Designer3D Animator & UI Designer",
+      "MediProfen VR is a Virtual Reality-based first aid training simulation.",
+    techStack: ["Blender", "C#", "Figma", "Unity", ],
+    bullets: [
+      "Conceptualized and developed 8 distinct medical-response animations using Blender to realistically simulate real-time clinical patient symptoms and trauma reactions.",
+      "Designed lifelike character rigging and visual asset feedback loops for critical scenarios, including choking indicators, respiratory distress reactions, and post-injection recoveries.",
+      "Collaborated within a 5-member cross-functional team to integrate 3D environmental assets, logic-driven scenario state machines, and gamified user evaluation systems.",
+    ],
+    liveUrl: undefined,
+    repoUrl: "https://github.com/yumairai/MediProfen_KotakP3K_IMK7",
+  },
+  {
+    title: "KotakP3K (MesdiProfen): Virtual Reality Emergency Medical Training Simulation ",
+    thumbnail: "/images/projek3.png",
+    summary:
+      "MediProfen VR is a Virtual Reality-based first aid training simulation.",
     techStack: ["Blender", "C#", "Figma", "Unity", ],
     bullets: [
       "Conceptualized and developed 8 distinct medical-response animations using Blender to realistically simulate real-time clinical patient symptoms and trauma reactions.",

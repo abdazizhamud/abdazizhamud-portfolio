@@ -2,30 +2,62 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import { pinnedProjects } from "@/src/data/content";
+import { ArrowLeft, ExternalLink } from "lucide-react";
+import { pinnedProjects } from "@/src/data/content"; // Only importing pinnedProjects now
 import Card from "@/src/components/ui/Card";
 
-export default function Projects() {
+export default function ProjectsArchive() {
   return (
-    <section
-      id="projects"
-      className="section-wrapper"
+    <main
       style={{
-        borderTop: "1px solid var(--color-border)",
+        minHeight: "100vh",
         backgroundColor: "var(--color-background)",
+        paddingTop: "6rem",
+        paddingBottom: "6rem",
       }}
     >
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 1.5rem" }}>
-        {/* ── Section heading ─────────────────────────────────── */}
-        <div style={{ marginBottom: "3rem" }}>
-          <p className="section-label">Things I&apos;ve built</p>
-          <h2 className="section-title">Featured Projects</h2>
+        
+        {/* ── Back Navigation ─────────────────────────────────── */}
+        <Link
+          href="/#projects"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            fontSize: "0.875rem",
+            fontWeight: 600,
+            color: "var(--color-text-secondary)",
+            textDecoration: "none",
+            marginBottom: "3rem",
+            transition: "color 0.2s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text-primary)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-secondary)")}
+        >
+          <ArrowLeft size={16} />
+          Back to Home
+        </Link>
+
+        {/* ── Page Header ─────────────────────────────────────── */}
+        <div style={{ marginBottom: "4rem" }}>
+          <h1
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: 800,
+              letterSpacing: "-0.02em",
+              color: "var(--color-text-primary)",
+              margin: "0 0 0.75rem",
+            }}
+          >
+            All Projects
+          </h1>
+          <p style={{ fontSize: "1.125rem", color: "var(--color-text-secondary)", margin: 0 }}>
+            A complete archive of things I've built, experimented with, or contributed to.
+          </p>
         </div>
 
-        {/* ════════════════════════════════════════════════════════
-            FEATURED PROJECTS — Limited to 4
-        ════════════════════════════════════════════════════════ */}
+        {/* ── Projects Grid (Shows ALL projects) ──────────────── */}
         <div 
           style={{ 
             display: "grid", 
@@ -33,8 +65,7 @@ export default function Projects() {
             gap: "2rem" 
           }}
         >
-          {/* NOTICE THE .slice(0, 4) HERE 👇 */}
-          {pinnedProjects.slice(0, 4).map((project, idx) => (
+          {pinnedProjects.map((project, idx) => (
             <Card key={project.title}>
               <div
                 style={{
@@ -106,44 +137,8 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* ════════════════════════════════════════════════════════
-            CTA TO FULL ARCHIVE
-        ════════════════════════════════════════════════════════ */}
-        <div style={{ marginTop: "4rem", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
-          <p style={{ fontSize: "1rem", color: "var(--color-text-secondary)", fontWeight: 500, margin: 0 }}>
-            Want to see all my projects?
-          </p>
-          <Link
-            href="/projects"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.6rem 1.25rem",
-              borderRadius: "8px",
-              fontSize: "0.9375rem",
-              fontWeight: 600,
-              textDecoration: "none",
-              color: "var(--color-text-primary)",
-              backgroundColor: "var(--color-surface)",
-              border: "1px solid var(--color-border)",
-              transition: "all 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-text-faint)";
-              e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-border)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            View Full Archive →
-          </Link>
-        </div>
-
       </div>
-    </section>
+    </main>
   );
 }
 

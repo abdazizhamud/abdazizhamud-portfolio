@@ -15,7 +15,7 @@ export const hero = {
   links: {
     github: "https://github.com/abdazizhamud",
     linkedin: "https://www.linkedin.com/in/hamud-abdul-aziz/",
-    resume: "/docs/cv.pdf",
+    resume: "/docs/CV_GLOBAL.pdf",
     instagram:"",
     spotify:"",
     letterboxd:""
@@ -38,11 +38,11 @@ export const about: About = {
     "/images/about3.webp",
     "/images/about4.webp",
   ],
-  summary: "A passionate engineer dedicated to building scalable and robust systems.",
+  summary: "A passionate computer sciences student mainly focus in data analytics and software engineering",
   paragraphs: [
-    "I'm an Informatics student specializing in backend architecture and systems programming. My journey is driven by a curiosity about how complex software ecosystems operate and a desire to make them more efficient.",
-    "Currently, I'm focusing on distributed systems and performance optimization. I have hands-on experience with technologies like Next.js, Prisma, and PostgreSQL, and I love diving deep into 3D modeling and game development using Blender, Roblox Studio, and Lua.",
-    "My goal is to secure a challenging software engineering internship for Summer 2026 where I can apply my skills and grow within a professional team.",
+    "I'm an Informatics student specializing myself in backend architecture, systems programming, and data analytics. My journey is driven by a curiosity about how complex modern data works and how to grow with them",
+    "Currently, I'm focusing on learning and doing projects on software engineering and data analytics. I have hands-on experience with technologies like Next.js, ExpressJs, and PostgreSQL, and I love diving deep into how can I explain data to common people and make the data useful for them",
+    "My goal is to secure a challenging software engineering or data analytics internship for Summer 2026 where I can apply my skills and grow within a professional team.",
   ],
 };
 
@@ -107,12 +107,12 @@ export const orgExperiences: OrgExperience[] = [
 
   },
   {
-    organization: "Himpunan Mahasiswa Informatika UNPAD",
-    logo: "https://placehold.co/40x40/e2e8f0/64748b?text=HM",
-    role: "Head of Research & Development",
-    period: "Jan 2022 — Dec 2022",
+    organization: "Himpunan Mahasiswa Teknik Informatika UNPAD",
+    logo: "/images/himatif.jpg",
+    role: "Staff of Career Development Departent",
+    period: "Mar 2024 — Dec 2025",
     description:
-      "Directed R&D division of 15 members; published 2 internal technical papers on distributed systems and spearheaded the annual competitive programming contest with 200+ participants.",
+      "Organized a 80 student company visit to one of the biggest bank in Indonesia",
   },
 ];
 
@@ -193,6 +193,19 @@ export type PinnedProject = {
 
 export const pinnedProjects: PinnedProject[] = [
   {
+    title: "Automated Garment Tracking & Quality Control System",
+    thumbnail: "/images/projek0.png",
+    summary:
+      "A QR-code-integrated production tracking system designed to automate garment manufacturing workflows and provide real-time progress visibility for both factory admins and clients.",
+    techStack: ["Nextjs", "FastApi", "QRCODE", "Postgres"],
+    bullets: [
+      "Engineered a real-time production tracking system using Next.js and FastAPI, enabling factory admins to monitor daily garment batches and worker activities seamlessly.",
+      "Developed an integrated QR Code scanning module for field workers to perform automated scan-in/scan-out, reducing manual logging errors.",
+    ],
+    liveUrl: "undefined",
+    repoUrl: "https://github.com/abdazizhamud/garment-automation",
+  },
+  {
     title: "NutriMatch: AI-Powered Personalized Diet & Allergen-Smart Recommendation System",
     thumbnail: "/images/projek1.png",
     summary:
@@ -222,7 +235,7 @@ export const pinnedProjects: PinnedProject[] = [
     repoUrl: "https://github.com/dzikribassyril/BeliBIji",
   },
   {
-    title: "KotakP3K (MediProfen): Virtual Reality Emergency Medical Training Simulation ",
+    title: "KotakP3K (MediProfen): Virtual Reality Emergency Medical Training Simulation",
     thumbnail: "/images/projek3.png",
     summary:
       "MediProfen VR is a Virtual Reality-based first aid training simulation.",
@@ -236,18 +249,18 @@ export const pinnedProjects: PinnedProject[] = [
     repoUrl: "https://github.com/yumairai/MediProfen_KotakP3K_IMK7",
   },
   {
-    title: "KotakP3K (MesdiProfen): Virtual Reality Emergency Medical Training Simulation ",
-    thumbnail: "/images/projek3.png",
+    title: "Kamojang PLTP Geothermal Data Analytics & Real-Time Dashboard",
+    thumbnail: "/images/projek4.png",
     summary:
-      "MediProfen VR is a Virtual Reality-based first aid training simulation.",
-    techStack: ["Blender", "C#", "Figma", "Unity", ],
+      "Developed an interactive dashboard and machine learning system that processes NASA satellite data to forecast temperatures and detect real-time anomalies at the Kamojang PLTP.",
+    techStack: ["Time Series", "Machine Learning", "Data Visualization", "Data Cleaning", ],
     bullets: [
-      "Conceptualized and developed 8 distinct medical-response animations using Blender to realistically simulate real-time clinical patient symptoms and trauma reactions.",
-      "Designed lifelike character rigging and visual asset feedback loops for critical scenarios, including choking indicators, respiratory distress reactions, and post-injection recoveries.",
-      "Collaborated within a 5-member cross-functional team to integrate 3D environmental assets, logic-driven scenario state machines, and gamified user evaluation systems.",
+      "Engineered an end-to-end machine learning system to process 16 years of NASA satellite data, resolving severe data gaps using linear interpolation and climatology baselines to ensure reliable analysis.",
+      "Trained and evaluated multiple regression algorithms for temperature forecasting, achieving a highly accurate Mean Absolute Error of 0.645°C and an R² score of 0.7560 utilizing a Random Forest model.",
+      "Deployed the forecasting model and unsupervised anomaly detection algorithms (Isolation Forest, Local Outlier Factor) into a real-time monitoring interface to successfully track and isolate high-confidence subsurface thermal events.",
     ],
     liveUrl: undefined,
-    repoUrl: "https://github.com/yumairai/MediProfen_KotakP3K_IMK7",
+    repoUrl: "https://github.com/abdazizhamud/Land-Surface-Temperature-Anomaly-Prediction-using-Evolutionary-Fuzzy-System",
   },
 ];
 

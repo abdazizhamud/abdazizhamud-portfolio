@@ -194,15 +194,16 @@ export type PinnedProject = {
 export const pinnedProjects: PinnedProject[] = [
   {
     title: "Automated Garment Tracking & Quality Control System",
-    thumbnail: "/images/projek0.png",
+    thumbnail: "images/bgi_tracker.png",
     summary:
       "A QR-code-integrated production tracking system designed to automate garment manufacturing workflows and provide real-time progress visibility for both factory admins and clients.",
-    techStack: ["Nextjs", "FastApi", "QRCODE", "Postgres"],
+    techStack: ["Nextjs", "Docker","Server-Management", "QRCODE", "Postgres","Cloudflare"],
     bullets: [
       "Engineered a real-time production tracking system using Next.js and FastAPI, enabling factory admins to monitor daily garment batches and worker activities seamlessly.",
       "Developed an integrated QR Code scanning module for field workers to perform automated scan-in/scan-out, reducing manual logging errors.",
+      "Deployed the system on a custom-built local Ubuntu server, implementing Cloudflare Tunnels for secure external routing and domain management without exposing the internal network.",
     ],
-    liveUrl: "undefined",
+    liveUrl: "konveksibgi.com",
     repoUrl: "https://github.com/abdazizhamud/garment-automation",
   },
   {

@@ -203,7 +203,7 @@ export const pinnedProjects: PinnedProject[] = [
       "Developed an integrated QR Code scanning module for field workers to perform automated scan-in/scan-out, reducing manual logging errors.",
       "Deployed the system on a custom-built local Ubuntu server, implementing Cloudflare Tunnels for secure external routing and domain management without exposing the internal network.",
     ],
-    liveUrl: "konveksibgi.com",
+    liveUrl: "https://konveksibgi.com",
     repoUrl: "https://github.com/abdazizhamud/garment-automation",
   },
   {

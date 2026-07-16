@@ -225,7 +225,7 @@ export const pinnedProjects: PinnedProject[] = [
     thumbnail: "/images/employee_attrition.png",
     summary:
       "BeliBiji is an integrated web platform that combines retail e-commerce (B2C) functionality with natural resource conservation initiatives. ",
-    techStack: ["JavaScript", "TypeScript", "ExpressJs", "Supabase", "NextJs", "MidTrans"],
+    techStack: ["PostgreSQL", "SQL", "Power BI", "DAX", "Excel", "VBA"],
     bullets: [
       "Designed a relational SQL data warehouse (PostgreSQL) modeling 668 active and 132 exited employee records, and wrote analytical queries using window functions and CTEs to compute a 16.50 % attrition rate and 30.68-month average tenure across departments",
       "Built an interactive Power BI dashboard connected live via Power Query, featuring a composite DAX-driven risk-scoring model that flagged 30 employees as medium/high retention risk out of 668, and quantified estimated attrition cost at IDR 4.58 billion to support workforce planning decisions",

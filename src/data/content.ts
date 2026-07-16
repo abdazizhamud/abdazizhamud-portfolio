@@ -40,9 +40,8 @@ export const about: About = {
   ],
   summary: "A passionate computer sciences student mainly focus in data analytics and software engineering",
   paragraphs: [
-    "I'm an Informatics student specializing myself in backend architecture, systems programming, and data analytics. My journey is driven by a curiosity about how complex modern data works and how to grow with them",
-    "Currently, I'm focusing on learning and doing projects on software engineering and data analytics. I have hands-on experience with technologies like Next.js, ExpressJs, and PostgreSQL, and I love diving deep into how can I explain data to common people and make the data useful for them",
-    "My goal is to secure a challenging software engineering or data analytics internship for Summer 2026 where I can apply my skills and grow within a professional team.",
+    "I'm an Informatics student specializing in backend architecture, systems programming, and data analytics. My journey is driven by a curiosity about how complex modern data infrastructures operate and how to scale with them.",
+    "Currently, my projects focus on mastering core software engineering concepts, scalable system design, and robust backend architectures. Alongside building these systems, I am deeply passionate about data analytics—specifically, taking complex datasets and translating them into clear, actionable insights that everyday people can easily understand and utilize."
   ],
 };
 
@@ -204,7 +203,7 @@ export const pinnedProjects: PinnedProject[] = [
       "Deployed the system on a custom-built local Ubuntu server, implementing Cloudflare Tunnels for secure external routing and domain management without exposing the internal network.",
     ],
     liveUrl: "https://konveksibgi.com",
-    repoUrl: "https://github.com/abdazizhamud/garment-automation",
+    repoUrl: undefined,
   },
   {
     title: "NutriMatch: AI-Powered Personalized Diet & Allergen-Smart Recommendation System",
@@ -220,6 +219,20 @@ export const pinnedProjects: PinnedProject[] = [
     ],
     liveUrl: "https://nutrimatch-app.vercel.app/",
     repoUrl: "kurtz17/NutriMatch",
+  },
+  {
+    title: "Employee Attrition & Workforce Analytics Dashboard",
+    thumbnail: "/images/employee_attrition.png",
+    summary:
+      "BeliBiji is an integrated web platform that combines retail e-commerce (B2C) functionality with natural resource conservation initiatives. ",
+    techStack: ["JavaScript", "TypeScript", "ExpressJs", "Supabase", "NextJs", "MidTrans"],
+    bullets: [
+      "Designed a relational SQL data warehouse (PostgreSQL) modeling 668 active and 132 exited employee records, and wrote analytical queries using window functions and CTEs to compute a 16.50 % attrition rate and 30.68-month average tenure across departments",
+      "Built an interactive Power BI dashboard connected live via Power Query, featuring a composite DAX-driven risk-scoring model that flagged 30 employees as medium/high retention risk out of 668, and quantified estimated attrition cost at IDR 4.58 billion to support workforce planning decisions",
+      "Automated the monthly HR data refresh pipeline with an Excel VBA macro that cleans and appends new attendance/performance data, paired with a VLOOKUP-based lookup tool for quick employee-level review during 1:1 sessions.",
+    ],
+    liveUrl: undefined,
+    repoUrl: undefined,
   },
   {
     title: "BeliBiji - E-Commerce & Biodiversity Crowdfunding Platform",
